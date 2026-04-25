@@ -166,13 +166,13 @@ body::before {
 .sidebar-poster img {
   width: 100%;
   display: block;
-  aspect-ratio: 16 / 9; /* ← cambio clave */
-  object-fit: cover; /* recorta si es necesario, pero mantiene proporción */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .poster-placeholder-sm {
   width: 100%;
-  aspect-ratio: 16 / 9; /* mismo ratio para el placeholder */
+  aspect-ratio: 16 / 9;
   background: var(--surface-3);
   display: flex;
   align-items: center;
