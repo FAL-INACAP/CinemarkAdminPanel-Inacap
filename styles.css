@@ -399,7 +399,7 @@ body::before {
   border-top: 3px solid var(--success);
 }
 .kpi-pending {
-  border-top: 3px solid var(--danger);
+  border-top: 3px solid var(--warning);
 }
 .kpi-revenue {
   border-top: 3px solid var(--red);
@@ -432,7 +432,7 @@ body::before {
   background: var(--success);
 }
 .dot-pending {
-  background: var(--danger);
+  background: var(--warning);
 }
 .summary-progress {
   height: 10px;
@@ -868,8 +868,8 @@ body::before {
   border-color: var(--border-2);
 }
 #statusPending:checked + .btn-filter-pending {
-  background: var(--danger);
-  border-color: var(--danger);
+  background: var(--warning);
+  border-color: var(--warning);
   color: #fff;
 }
 #statusPaid:checked + .btn-filter-paid {
