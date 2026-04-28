@@ -72,7 +72,7 @@ body::before {
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Esto asegura que el footer se vaya abajo */
+  justify-content: space-between;
   position: fixed;
   left: 0;
   top: 0;
@@ -1171,4 +1171,247 @@ body::before {
     width: 34px;
     height: 34px;
   }
+}
+
+/* ══════════════════════════════
+   PANEL DÍAS
+══════════════════════════════ */
+.days-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  margin-top: 1.5rem;
+}
+.days-block-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.days-block-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.days-block-sub {
+  font-size: 0.82rem;
+  color: var(--txt-muted);
+}
+.days-btngroup {
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.days-btn {
+  border: 1px solid var(--border-2) !important;
+  background: var(--surface-2);
+  color: var(--txt-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.days-btn:hover {
+  background: var(--surface-3);
+  color: var(--txt);
+  border-color: var(--border-2) !important;
+}
+.days-btn-active {
+  background: var(--red) !important;
+  border-color: var(--red) !important;
+  color: #fff !important;
+}
+.days-btn-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  line-height: 1.4;
+  min-width: 1.4em;
+  text-align: center;
+}
+.days-btn-active .days-btn-badge {
+  background: rgba(255, 255, 255, 0.25);
+}
+/* Estado vacío del panel */
+.day-empty {
+  padding: 1.75rem;
+  text-align: center;
+  color: var(--txt-muted);
+  font-size: 0.88rem;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border-2);
+}
+/* Cabecera del detalle */
+.day-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+.day-detail-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+}
+.day-detail-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--txt-muted);
+  background: var(--surface-3);
+  border: 1px solid var(--border-2);
+  border-radius: 99px;
+  padding: 0.25rem 0.75rem;
+}
+/* Grid de horarios */
+.day-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+.day-slot-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--red);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.day-slot-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.day-slot-empty {
+  border-top-color: var(--border-2);
+  opacity: 0.55;
+}
+.slot-time {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+.slot-no-entries {
+  font-size: 0.78rem;
+  color: var(--txt-soft);
+  font-style: italic;
+}
+.slot-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.slot-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.slot-stat-label {
+  color: var(--txt-muted);
+}
+.slot-stat-val {
+  color: var(--txt);
+  font-weight: 700;
+}
+.slot-stat-paid .slot-stat-val {
+  color: #2dce89;
+}
+.slot-stat-pending .slot-stat-val {
+  color: #ff6b6b;
+}
+.slot-stat-revenue {
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border);
+}
+.slot-stat-revenue .slot-stat-val {
+  color: var(--red);
+  font-size: 0.85rem;
+}
+@media (max-width: 1100px) {
+  .day-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .day-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .days-btn {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.6rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   MEJORAS — Validación visual dark-theme (Bootstrap fix)
+   Bootstrap usa fondos blancos por defecto para is-valid/is-invalid;
+   aquí los adaptamos al tema oscuro de la aplicación.
+   (Sugerencia de IA: evitar fondos claros en campos con tema dark)
+══════════════════════════════════════════════════════ */
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: var(--success) !important;
+  box-shadow: 0 0 0 3px rgba(26, 158, 92, 0.2) !important;
+  background-image: none !important; /* eliminar ícono ✓ de Bootstrap */
+}
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(204, 51, 51, 0.2) !important;
+  background-image: none !important; /* eliminar ícono ✗ de Bootstrap */
+}
+.valid-feedback {
+  color: var(--success);
+  font-size: 0.8rem;
+}
+.invalid-feedback {
+  color: var(--danger);
+  font-size: 0.8rem;
+}
+
+/* ── Micro-animación de entrada para las tarjetas de ticket ──
+   (Sugerencia de IA: usar animaciones cortas para mejorar la percepción de
+   respuesta de la interfaz sin afectar la usabilidad) */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.ticket-card {
+  animation: fadeSlideIn 0.22s ease both;
+}
+
+/* ── Indicador de carga del mapa de butacas ──
+   Mejora la experiencia cuando se espera la actualización del mapa */
+.seat-map:empty::before {
+  content: "Selecciona sede, fecha y horario…";
+  display: block;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--txt-soft);
+  font-size: 0.82rem;
+  font-style: italic;
 }
